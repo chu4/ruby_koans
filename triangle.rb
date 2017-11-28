@@ -15,6 +15,21 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  if a<=0 || b<=0 || c<=0
+    raise TriangleError, "Either side can't be less or equal 0"
+  end
+  if a+b<=c || b+c<=a || a+c<=b
+    raise TriangleError, "Sum of ether two sides can't be less or equal to the third"
+  end
+  if a==b && a==c
+    return :equilateral
+  end
+  if (a==b && a!=c) || (a==c && a!=b) || (b==c && b!=a)
+    return :isosceles
+  end
+  if a!=b && a!=c && b!=c
+    return :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
